@@ -1,0 +1,985 @@
+{
+    "dataset_summary": {
+        "total_samples": 8077,
+        "columns": [
+            "Ticket ID",
+            "Customer Name",
+            "Customer Email",
+            "Customer Age",
+            "Customer Gender",
+            "Product Purchased",
+            "Date of Purchase",
+            "Ticket Type",
+            "Ticket Subject",
+            "Ticket Description",
+            "Ticket Status",
+            "Resolution",
+            "Ticket Priority",
+            "Ticket Channel",
+            "First Response Time",
+            "Time to Resolution",
+            "Customer Satisfaction Rating"
+        ],
+        "mapping": {
+            "description": "Ticket Description",
+            "subject": "Ticket Subject",
+            "category": "Ticket Type",
+            "priority": "Ticket Priority",
+            "id": "Ticket ID",
+            "status": "Ticket Status",
+            "date": "Date of Purchase",
+            "customer": "Customer Name"
+        },
+        "stats": {
+            "raw_rows": 8469,
+            "missing_descriptions": 0,
+            "duplicates_removed": 392,
+            "final_rows": 8077,
+            "is_priority_rule_generated": false
+        }
+    },
+    "category_model": {
+        "best_model": "Multinomial Naive Bayes",
+        "accuracy": 0.21349009900990099,
+        "f1_weighted": 0.21242039673809684,
+        "all_models": {
+            "Multinomial Naive Bayes": {
+                "model_name": "Multinomial Naive Bayes",
+                "accuracy": 0.21349009900990099,
+                "precision_macro": 0.21485293197274835,
+                "precision_weighted": 0.21458334230939913,
+                "recall_macro": 0.21316219851470586,
+                "recall_weighted": 0.21349009900990099,
+                "f1_macro": 0.21238516340487407,
+                "f1_weighted": 0.21242039673809684,
+                "training_time": 1.0533,
+                "prediction_time": 0.1961,
+                "classes": [
+                    "Billing inquiry",
+                    "Cancellation request",
+                    "Product inquiry",
+                    "Refund request",
+                    "Technical issue"
+                ],
+                "confusion_matrix": [
+                    [
+                        53,
+                        58,
+                        59,
+                        72,
+                        72
+                    ],
+                    [
+                        50,
+                        62,
+                        49,
+                        81,
+                        82
+                    ],
+                    [
+                        48,
+                        47,
+                        74,
+                        74,
+                        73
+                    ],
+                    [
+                        50,
+                        55,
+                        62,
+                        68,
+                        97
+                    ],
+                    [
+                        37,
+                        59,
+                        77,
+                        69,
+                        88
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Billing inquiry": {
+                        "precision": 0.22268907563025211,
+                        "recall": 0.16878980891719744,
+                        "f1-score": 0.19202898550724637,
+                        "support": 314.0
+                    },
+                    "Cancellation request": {
+                        "precision": 0.2206405693950178,
+                        "recall": 0.19135802469135801,
+                        "f1-score": 0.2049586776859504,
+                        "support": 324.0
+                    },
+                    "Product inquiry": {
+                        "precision": 0.23052959501557632,
+                        "recall": 0.23417721518987342,
+                        "f1-score": 0.23233908948194662,
+                        "support": 316.0
+                    },
+                    "Refund request": {
+                        "precision": 0.18681318681318682,
+                        "recall": 0.20481927710843373,
+                        "f1-score": 0.19540229885057472,
+                        "support": 332.0
+                    },
+                    "Technical issue": {
+                        "precision": 0.21359223300970873,
+                        "recall": 0.26666666666666666,
+                        "f1-score": 0.2371967654986523,
+                        "support": 330.0
+                    },
+                    "accuracy": 0.21349009900990099,
+                    "macro avg": {
+                        "precision": 0.21485293197274835,
+                        "recall": 0.21316219851470586,
+                        "f1-score": 0.21238516340487407,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.21458334230939913,
+                        "recall": 0.21349009900990099,
+                        "f1-score": 0.21242039673809684,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "                      precision    recall  f1-score   support\n\n     Billing inquiry       0.22      0.17      0.19       314\nCancellation request       0.22      0.19      0.20       324\n     Product inquiry       0.23      0.23      0.23       316\n      Refund request       0.19      0.20      0.20       332\n     Technical issue       0.21      0.27      0.24       330\n\n            accuracy                           0.21      1616\n           macro avg       0.21      0.21      0.21      1616\n        weighted avg       0.21      0.21      0.21      1616\n"
+            },
+            "Logistic Regression": {
+                "model_name": "Logistic Regression",
+                "accuracy": 0.2073019801980198,
+                "precision_macro": 0.20978367988500274,
+                "precision_weighted": 0.20945686455062099,
+                "recall_macro": 0.20727416276545632,
+                "recall_weighted": 0.2073019801980198,
+                "f1_macro": 0.2078956363121079,
+                "f1_weighted": 0.20774642368814247,
+                "training_time": 3.7214,
+                "prediction_time": 0.2505,
+                "classes": [
+                    "Billing inquiry",
+                    "Cancellation request",
+                    "Product inquiry",
+                    "Refund request",
+                    "Technical issue"
+                ],
+                "confusion_matrix": [
+                    [
+                        61,
+                        59,
+                        55,
+                        81,
+                        58
+                    ],
+                    [
+                        52,
+                        67,
+                        48,
+                        77,
+                        80
+                    ],
+                    [
+                        51,
+                        52,
+                        69,
+                        79,
+                        65
+                    ],
+                    [
+                        56,
+                        59,
+                        71,
+                        67,
+                        79
+                    ],
+                    [
+                        50,
+                        51,
+                        79,
+                        79,
+                        71
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Billing inquiry": {
+                        "precision": 0.22592592592592592,
+                        "recall": 0.1942675159235669,
+                        "f1-score": 0.2089041095890411,
+                        "support": 314.0
+                    },
+                    "Cancellation request": {
+                        "precision": 0.2326388888888889,
+                        "recall": 0.20679012345679013,
+                        "f1-score": 0.21895424836601307,
+                        "support": 324.0
+                    },
+                    "Product inquiry": {
+                        "precision": 0.21428571428571427,
+                        "recall": 0.21835443037974683,
+                        "f1-score": 0.21630094043887146,
+                        "support": 316.0
+                    },
+                    "Refund request": {
+                        "precision": 0.17493472584856398,
+                        "recall": 0.20180722891566266,
+                        "f1-score": 0.1874125874125874,
+                        "support": 332.0
+                    },
+                    "Technical issue": {
+                        "precision": 0.20113314447592068,
+                        "recall": 0.21515151515151515,
+                        "f1-score": 0.20790629575402636,
+                        "support": 330.0
+                    },
+                    "accuracy": 0.2073019801980198,
+                    "macro avg": {
+                        "precision": 0.20978367988500274,
+                        "recall": 0.20727416276545632,
+                        "f1-score": 0.2078956363121079,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.20945686455062099,
+                        "recall": 0.2073019801980198,
+                        "f1-score": 0.20774642368814247,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "                      precision    recall  f1-score   support\n\n     Billing inquiry       0.23      0.19      0.21       314\nCancellation request       0.23      0.21      0.22       324\n     Product inquiry       0.21      0.22      0.22       316\n      Refund request       0.17      0.20      0.19       332\n     Technical issue       0.20      0.22      0.21       330\n\n            accuracy                           0.21      1616\n           macro avg       0.21      0.21      0.21      1616\n        weighted avg       0.21      0.21      0.21      1616\n"
+            },
+            "Linear SVM": {
+                "model_name": "Linear SVM",
+                "accuracy": 0.21658415841584158,
+                "precision_macro": 0.15347900055664007,
+                "precision_weighted": 0.1540841050494964,
+                "recall_macro": 0.21143612424381067,
+                "recall_weighted": 0.21658415841584158,
+                "f1_macro": 0.12378456458730129,
+                "f1_weighted": 0.12672169460226684,
+                "training_time": 2.5649,
+                "prediction_time": 0.1027,
+                "classes": [
+                    "Billing inquiry",
+                    "Cancellation request",
+                    "Product inquiry",
+                    "Refund request",
+                    "Technical issue"
+                ],
+                "confusion_matrix": [
+                    [
+                        0,
+                        0,
+                        1,
+                        185,
+                        128
+                    ],
+                    [
+                        0,
+                        0,
+                        0,
+                        188,
+                        136
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        173,
+                        142
+                    ],
+                    [
+                        0,
+                        0,
+                        0,
+                        195,
+                        137
+                    ],
+                    [
+                        0,
+                        1,
+                        1,
+                        174,
+                        154
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Billing inquiry": {
+                        "precision": 0.0,
+                        "recall": 0.0,
+                        "f1-score": 0.0,
+                        "support": 314.0
+                    },
+                    "Cancellation request": {
+                        "precision": 0.0,
+                        "recall": 0.0,
+                        "f1-score": 0.0,
+                        "support": 324.0
+                    },
+                    "Product inquiry": {
+                        "precision": 0.3333333333333333,
+                        "recall": 0.0031645569620253164,
+                        "f1-score": 0.006269592476489028,
+                        "support": 316.0
+                    },
+                    "Refund request": {
+                        "precision": 0.21311475409836064,
+                        "recall": 0.5873493975903614,
+                        "f1-score": 0.31275060144346434,
+                        "support": 332.0
+                    },
+                    "Technical issue": {
+                        "precision": 0.22094691535150646,
+                        "recall": 0.4666666666666667,
+                        "f1-score": 0.29990262901655307,
+                        "support": 330.0
+                    },
+                    "accuracy": 0.21658415841584158,
+                    "macro avg": {
+                        "precision": 0.15347900055664007,
+                        "recall": 0.21143612424381067,
+                        "f1-score": 0.12378456458730129,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.1540841050494964,
+                        "recall": 0.21658415841584158,
+                        "f1-score": 0.12672169460226684,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "                      precision    recall  f1-score   support\n\n     Billing inquiry       0.00      0.00      0.00       314\nCancellation request       0.00      0.00      0.00       324\n     Product inquiry       0.33      0.00      0.01       316\n      Refund request       0.21      0.59      0.31       332\n     Technical issue       0.22      0.47      0.30       330\n\n            accuracy                           0.22      1616\n           macro avg       0.15      0.21      0.12      1616\n        weighted avg       0.15      0.22      0.13      1616\n"
+            },
+            "Random Forest": {
+                "model_name": "Random Forest",
+                "accuracy": 0.21225247524752475,
+                "precision_macro": 0.21670065341350417,
+                "precision_weighted": 0.2164462107324825,
+                "recall_macro": 0.21116294205914315,
+                "recall_weighted": 0.21225247524752475,
+                "f1_macro": 0.20883579226501178,
+                "f1_weighted": 0.20924497895380395,
+                "training_time": 0.9834,
+                "prediction_time": 0.1254,
+                "classes": [
+                    "Billing inquiry",
+                    "Cancellation request",
+                    "Product inquiry",
+                    "Refund request",
+                    "Technical issue"
+                ],
+                "confusion_matrix": [
+                    [
+                        53,
+                        44,
+                        49,
+                        96,
+                        72
+                    ],
+                    [
+                        35,
+                        56,
+                        42,
+                        105,
+                        86
+                    ],
+                    [
+                        50,
+                        50,
+                        51,
+                        80,
+                        85
+                    ],
+                    [
+                        40,
+                        53,
+                        54,
+                        96,
+                        89
+                    ],
+                    [
+                        35,
+                        44,
+                        56,
+                        108,
+                        87
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Billing inquiry": {
+                        "precision": 0.24882629107981222,
+                        "recall": 0.16878980891719744,
+                        "f1-score": 0.20113851992409867,
+                        "support": 314.0
+                    },
+                    "Cancellation request": {
+                        "precision": 0.22672064777327935,
+                        "recall": 0.1728395061728395,
+                        "f1-score": 0.19614711033274956,
+                        "support": 324.0
+                    },
+                    "Product inquiry": {
+                        "precision": 0.20238095238095238,
+                        "recall": 0.16139240506329114,
+                        "f1-score": 0.1795774647887324,
+                        "support": 316.0
+                    },
+                    "Refund request": {
+                        "precision": 0.1979381443298969,
+                        "recall": 0.2891566265060241,
+                        "f1-score": 0.2350061199510404,
+                        "support": 332.0
+                    },
+                    "Technical issue": {
+                        "precision": 0.20763723150357996,
+                        "recall": 0.2636363636363636,
+                        "f1-score": 0.23230974632843793,
+                        "support": 330.0
+                    },
+                    "accuracy": 0.21225247524752475,
+                    "macro avg": {
+                        "precision": 0.21670065341350417,
+                        "recall": 0.21116294205914315,
+                        "f1-score": 0.20883579226501178,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.2164462107324825,
+                        "recall": 0.21225247524752475,
+                        "f1-score": 0.20924497895380395,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "                      precision    recall  f1-score   support\n\n     Billing inquiry       0.25      0.17      0.20       314\nCancellation request       0.23      0.17      0.20       324\n     Product inquiry       0.20      0.16      0.18       316\n      Refund request       0.20      0.29      0.24       332\n     Technical issue       0.21      0.26      0.23       330\n\n            accuracy                           0.21      1616\n           macro avg       0.22      0.21      0.21      1616\n        weighted avg       0.22      0.21      0.21      1616\n"
+            },
+            "Decision Tree": {
+                "model_name": "Decision Tree",
+                "accuracy": 0.2042079207920792,
+                "precision_macro": 0.20523805746169002,
+                "precision_weighted": 0.20547081313581356,
+                "recall_macro": 0.20033512961205027,
+                "recall_weighted": 0.2042079207920792,
+                "f1_macro": 0.09766745208745262,
+                "f1_weighted": 0.09909505116794036,
+                "training_time": 1.2974,
+                "prediction_time": 0.0797,
+                "classes": [
+                    "Billing inquiry",
+                    "Cancellation request",
+                    "Product inquiry",
+                    "Refund request",
+                    "Technical issue"
+                ],
+                "confusion_matrix": [
+                    [
+                        7,
+                        9,
+                        4,
+                        10,
+                        284
+                    ],
+                    [
+                        3,
+                        7,
+                        6,
+                        10,
+                        298
+                    ],
+                    [
+                        8,
+                        4,
+                        3,
+                        7,
+                        294
+                    ],
+                    [
+                        6,
+                        8,
+                        2,
+                        11,
+                        305
+                    ],
+                    [
+                        11,
+                        6,
+                        1,
+                        10,
+                        302
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Billing inquiry": {
+                        "precision": 0.2,
+                        "recall": 0.022292993630573247,
+                        "f1-score": 0.04011461318051576,
+                        "support": 314.0
+                    },
+                    "Cancellation request": {
+                        "precision": 0.20588235294117646,
+                        "recall": 0.021604938271604937,
+                        "f1-score": 0.03910614525139665,
+                        "support": 324.0
+                    },
+                    "Product inquiry": {
+                        "precision": 0.1875,
+                        "recall": 0.00949367088607595,
+                        "f1-score": 0.018072289156626505,
+                        "support": 316.0
+                    },
+                    "Refund request": {
+                        "precision": 0.22916666666666666,
+                        "recall": 0.03313253012048193,
+                        "f1-score": 0.05789473684210526,
+                        "support": 332.0
+                    },
+                    "Technical issue": {
+                        "precision": 0.20364126770060686,
+                        "recall": 0.9151515151515152,
+                        "f1-score": 0.33314947600661887,
+                        "support": 330.0
+                    },
+                    "accuracy": 0.2042079207920792,
+                    "macro avg": {
+                        "precision": 0.20523805746169002,
+                        "recall": 0.20033512961205027,
+                        "f1-score": 0.09766745208745262,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.20547081313581356,
+                        "recall": 0.2042079207920792,
+                        "f1-score": 0.09909505116794036,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "                      precision    recall  f1-score   support\n\n     Billing inquiry       0.20      0.02      0.04       314\nCancellation request       0.21      0.02      0.04       324\n     Product inquiry       0.19      0.01      0.02       316\n      Refund request       0.23      0.03      0.06       332\n     Technical issue       0.20      0.92      0.33       330\n\n            accuracy                           0.20      1616\n           macro avg       0.21      0.20      0.10      1616\n        weighted avg       0.21      0.20      0.10      1616\n"
+            }
+        }
+    },
+    "priority_model": {
+        "best_model": "Random Forest",
+        "accuracy": 0.25742574257425743,
+        "f1_weighted": 0.24663940100360204,
+        "all_models": {
+            "Multinomial Naive Bayes": {
+                "model_name": "Multinomial Naive Bayes",
+                "accuracy": 0.2438118811881188,
+                "precision_macro": 0.24192098652109062,
+                "precision_weighted": 0.24221285264231984,
+                "recall_macro": 0.242724731990861,
+                "recall_weighted": 0.2438118811881188,
+                "f1_macro": 0.2410997050467944,
+                "f1_weighted": 0.2417985538495934,
+                "training_time": 0.6996,
+                "prediction_time": 0.1983,
+                "classes": [
+                    "Critical",
+                    "High",
+                    "Low",
+                    "Medium"
+                ],
+                "confusion_matrix": [
+                    [
+                        94,
+                        100,
+                        84,
+                        128
+                    ],
+                    [
+                        114,
+                        98,
+                        69,
+                        120
+                    ],
+                    [
+                        103,
+                        107,
+                        71,
+                        110
+                    ],
+                    [
+                        101,
+                        104,
+                        82,
+                        131
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Critical": {
+                        "precision": 0.22815533980582525,
+                        "recall": 0.2315270935960591,
+                        "f1-score": 0.22982885085574573,
+                        "support": 406.0
+                    },
+                    "High": {
+                        "precision": 0.2396088019559902,
+                        "recall": 0.24438902743142144,
+                        "f1-score": 0.2419753086419753,
+                        "support": 401.0
+                    },
+                    "Low": {
+                        "precision": 0.23202614379084968,
+                        "recall": 0.1815856777493606,
+                        "f1-score": 0.20373027259684362,
+                        "support": 391.0
+                    },
+                    "Medium": {
+                        "precision": 0.26789366053169733,
+                        "recall": 0.3133971291866029,
+                        "f1-score": 0.288864388092613,
+                        "support": 418.0
+                    },
+                    "accuracy": 0.2438118811881188,
+                    "macro avg": {
+                        "precision": 0.24192098652109062,
+                        "recall": 0.242724731990861,
+                        "f1-score": 0.2410997050467944,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.24221285264231984,
+                        "recall": 0.2438118811881188,
+                        "f1-score": 0.2417985538495934,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "              precision    recall  f1-score   support\n\n    Critical       0.23      0.23      0.23       406\n        High       0.24      0.24      0.24       401\n         Low       0.23      0.18      0.20       391\n      Medium       0.27      0.31      0.29       418\n\n    accuracy                           0.24      1616\n   macro avg       0.24      0.24      0.24      1616\nweighted avg       0.24      0.24      0.24      1616\n"
+            },
+            "Logistic Regression": {
+                "model_name": "Logistic Regression",
+                "accuracy": 0.2469059405940594,
+                "precision_macro": 0.24564612338228584,
+                "precision_weighted": 0.24615799081929995,
+                "recall_macro": 0.24615414227720758,
+                "recall_weighted": 0.2469059405940594,
+                "f1_macro": 0.2457991173933565,
+                "f1_weighted": 0.24643035307047623,
+                "training_time": 2.9302,
+                "prediction_time": 0.2187,
+                "classes": [
+                    "Critical",
+                    "High",
+                    "Low",
+                    "Medium"
+                ],
+                "confusion_matrix": [
+                    [
+                        101,
+                        106,
+                        93,
+                        106
+                    ],
+                    [
+                        105,
+                        86,
+                        97,
+                        113
+                    ],
+                    [
+                        105,
+                        103,
+                        86,
+                        97
+                    ],
+                    [
+                        92,
+                        106,
+                        94,
+                        126
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Critical": {
+                        "precision": 0.2506203473945409,
+                        "recall": 0.24876847290640394,
+                        "f1-score": 0.24969097651421507,
+                        "support": 406.0
+                    },
+                    "High": {
+                        "precision": 0.2144638403990025,
+                        "recall": 0.2144638403990025,
+                        "f1-score": 0.2144638403990025,
+                        "support": 401.0
+                    },
+                    "Low": {
+                        "precision": 0.23243243243243245,
+                        "recall": 0.21994884910485935,
+                        "f1-score": 0.22601839684625494,
+                        "support": 391.0
+                    },
+                    "Medium": {
+                        "precision": 0.2850678733031674,
+                        "recall": 0.3014354066985646,
+                        "f1-score": 0.2930232558139535,
+                        "support": 418.0
+                    },
+                    "accuracy": 0.2469059405940594,
+                    "macro avg": {
+                        "precision": 0.24564612338228584,
+                        "recall": 0.24615414227720758,
+                        "f1-score": 0.2457991173933565,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.24615799081929995,
+                        "recall": 0.2469059405940594,
+                        "f1-score": 0.24643035307047623,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "              precision    recall  f1-score   support\n\n    Critical       0.25      0.25      0.25       406\n        High       0.21      0.21      0.21       401\n         Low       0.23      0.22      0.23       391\n      Medium       0.29      0.30      0.29       418\n\n    accuracy                           0.25      1616\n   macro avg       0.25      0.25      0.25      1616\nweighted avg       0.25      0.25      0.25      1616\n"
+            },
+            "Linear SVM": {
+                "model_name": "Linear SVM",
+                "accuracy": 0.2561881188118812,
+                "precision_macro": 0.14484706110660162,
+                "precision_weighted": 0.14678210031344724,
+                "recall_macro": 0.24862121379903512,
+                "recall_weighted": 0.2561881188118812,
+                "f1_macro": 0.1444585761735203,
+                "f1_weighted": 0.14809144055626067,
+                "training_time": 1.8526,
+                "prediction_time": 0.1989,
+                "classes": [
+                    "Critical",
+                    "High",
+                    "Low",
+                    "Medium"
+                ],
+                "confusion_matrix": [
+                    [
+                        55,
+                        0,
+                        5,
+                        346
+                    ],
+                    [
+                        56,
+                        0,
+                        3,
+                        342
+                    ],
+                    [
+                        60,
+                        0,
+                        1,
+                        330
+                    ],
+                    [
+                        56,
+                        0,
+                        4,
+                        358
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Critical": {
+                        "precision": 0.2422907488986784,
+                        "recall": 0.1354679802955665,
+                        "f1-score": 0.17377567140600317,
+                        "support": 406.0
+                    },
+                    "High": {
+                        "precision": 0.0,
+                        "recall": 0.0,
+                        "f1-score": 0.0,
+                        "support": 401.0
+                    },
+                    "Low": {
+                        "precision": 0.07692307692307693,
+                        "recall": 0.0025575447570332483,
+                        "f1-score": 0.0049504950495049506,
+                        "support": 391.0
+                    },
+                    "Medium": {
+                        "precision": 0.2601744186046512,
+                        "recall": 0.8564593301435407,
+                        "f1-score": 0.399108138238573,
+                        "support": 418.0
+                    },
+                    "accuracy": 0.2561881188118812,
+                    "macro avg": {
+                        "precision": 0.14484706110660162,
+                        "recall": 0.24862121379903512,
+                        "f1-score": 0.1444585761735203,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.14678210031344724,
+                        "recall": 0.2561881188118812,
+                        "f1-score": 0.14809144055626067,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "              precision    recall  f1-score   support\n\n    Critical       0.24      0.14      0.17       406\n        High       0.00      0.00      0.00       401\n         Low       0.08      0.00      0.00       391\n      Medium       0.26      0.86      0.40       418\n\n    accuracy                           0.26      1616\n   macro avg       0.14      0.25      0.14      1616\nweighted avg       0.15      0.26      0.15      1616\n"
+            },
+            "Random Forest": {
+                "model_name": "Random Forest",
+                "accuracy": 0.25742574257425743,
+                "precision_macro": 0.2508056828629189,
+                "precision_weighted": 0.2511564093593248,
+                "recall_macro": 0.2548887765436571,
+                "recall_weighted": 0.25742574257425743,
+                "f1_macro": 0.24525967991293834,
+                "f1_weighted": 0.24663940100360204,
+                "training_time": 1.6476,
+                "prediction_time": 0.3462,
+                "classes": [
+                    "Critical",
+                    "High",
+                    "Low",
+                    "Medium"
+                ],
+                "confusion_matrix": [
+                    [
+                        97,
+                        86,
+                        63,
+                        160
+                    ],
+                    [
+                        103,
+                        73,
+                        68,
+                        157
+                    ],
+                    [
+                        98,
+                        82,
+                        61,
+                        150
+                    ],
+                    [
+                        102,
+                        75,
+                        56,
+                        185
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Critical": {
+                        "precision": 0.2425,
+                        "recall": 0.23891625615763548,
+                        "f1-score": 0.24069478908188585,
+                        "support": 406.0
+                    },
+                    "High": {
+                        "precision": 0.2310126582278481,
+                        "recall": 0.18204488778054864,
+                        "f1-score": 0.20362622036262204,
+                        "support": 401.0
+                    },
+                    "Low": {
+                        "precision": 0.24596774193548387,
+                        "recall": 0.15601023017902813,
+                        "f1-score": 0.19092331768388107,
+                        "support": 391.0
+                    },
+                    "Medium": {
+                        "precision": 0.2837423312883436,
+                        "recall": 0.44258373205741625,
+                        "f1-score": 0.34579439252336447,
+                        "support": 418.0
+                    },
+                    "accuracy": 0.25742574257425743,
+                    "macro avg": {
+                        "precision": 0.2508056828629189,
+                        "recall": 0.2548887765436571,
+                        "f1-score": 0.24525967991293834,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.2511564093593248,
+                        "recall": 0.25742574257425743,
+                        "f1-score": 0.24663940100360204,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "              precision    recall  f1-score   support\n\n    Critical       0.24      0.24      0.24       406\n        High       0.23      0.18      0.20       401\n         Low       0.25      0.16      0.19       391\n      Medium       0.28      0.44      0.35       418\n\n    accuracy                           0.26      1616\n   macro avg       0.25      0.25      0.25      1616\nweighted avg       0.25      0.26      0.25      1616\n"
+            },
+            "Decision Tree": {
+                "model_name": "Decision Tree",
+                "accuracy": 0.2568069306930693,
+                "precision_macro": 0.25713548993466695,
+                "precision_weighted": 0.25762406672635396,
+                "recall_macro": 0.2497738527461476,
+                "recall_weighted": 0.2568069306930693,
+                "f1_macro": 0.15841935761544543,
+                "f1_weighted": 0.16120434007831222,
+                "training_time": 2.4634,
+                "prediction_time": 0.1515,
+                "classes": [
+                    "Critical",
+                    "High",
+                    "Low",
+                    "Medium"
+                ],
+                "confusion_matrix": [
+                    [
+                        16,
+                        15,
+                        36,
+                        339
+                    ],
+                    [
+                        13,
+                        23,
+                        23,
+                        342
+                    ],
+                    [
+                        15,
+                        11,
+                        17,
+                        348
+                    ],
+                    [
+                        21,
+                        17,
+                        21,
+                        359
+                    ]
+                ],
+                "classification_report_dict": {
+                    "Critical": {
+                        "precision": 0.24615384615384617,
+                        "recall": 0.03940886699507389,
+                        "f1-score": 0.06794055201698514,
+                        "support": 406.0
+                    },
+                    "High": {
+                        "precision": 0.3484848484848485,
+                        "recall": 0.057356608478802994,
+                        "f1-score": 0.09850107066381156,
+                        "support": 401.0
+                    },
+                    "Low": {
+                        "precision": 0.17525773195876287,
+                        "recall": 0.043478260869565216,
+                        "f1-score": 0.06967213114754098,
+                        "support": 391.0
+                    },
+                    "Medium": {
+                        "precision": 0.25864553314121036,
+                        "recall": 0.8588516746411483,
+                        "f1-score": 0.39756367663344405,
+                        "support": 418.0
+                    },
+                    "accuracy": 0.2568069306930693,
+                    "macro avg": {
+                        "precision": 0.25713548993466695,
+                        "recall": 0.2497738527461476,
+                        "f1-score": 0.15841935761544543,
+                        "support": 1616.0
+                    },
+                    "weighted avg": {
+                        "precision": 0.25762406672635396,
+                        "recall": 0.2568069306930693,
+                        "f1-score": 0.16120434007831222,
+                        "support": 1616.0
+                    }
+                },
+                "classification_report_text": "              precision    recall  f1-score   support\n\n    Critical       0.25      0.04      0.07       406\n        High       0.35      0.06      0.10       401\n         Low       0.18      0.04      0.07       391\n      Medium       0.26      0.86      0.40       418\n\n    accuracy                           0.26      1616\n   macro avg       0.26      0.25      0.16      1616\nweighted avg       0.26      0.26      0.16      1616\n"
+            }
+        }
+    }
+}

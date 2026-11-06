@@ -1,0 +1,22 @@
+{
+    "best_category_model": "Multinomial Naive Bayes",
+    "best_priority_model": "Random Forest",
+    "category_accuracy": 0.21349009900990099,
+    "category_f1": 0.21242039673809684,
+    "priority_accuracy": 0.25742574257425743,
+    "priority_f1": 0.24663940100360204,
+    "category_classes": [
+        "Billing inquiry",
+        "Cancellation request",
+        "Product inquiry",
+        "Refund request",
+        "Technical issue"
+    ],
+    "priority_classes": [
+        "Critical",
+        "High",
+        "Low",
+        "Medium"
+    ],
+    "train_date": "2026-11-06 16:39:45"
+}

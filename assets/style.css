@@ -1,0 +1,247 @@
+/* TicketIQ - Premium Enterprise SaaS Theme */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-primary: #0b1120;
+  --bg-secondary: #0f172a;
+  --bg-card: #151f32;
+  --bg-card-hover: #1e293b;
+  --border-card: #1e293b;
+  --border-accent: #334155;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-purple: #8b5cf6;
+  --text-main: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --color-critical: #ef4444;
+  --color-high: #f97316;
+  --color-medium: #f59e0b;
+  --color-low: #10b981;
+}
+
+/* Global Streamlit Container Overrides */
+.stApp {
+  background: radial-gradient(circle at 15% 10%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+              radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 40%),
+              #0b1120 !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: var(--text-main) !important;
+}
+
+/* Sidebar Custom Styling */
+[data-testid="stSidebar"] {
+  background-color: #0d1527 !important;
+  border-right: 1px solid var(--border-card) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h1,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
+  color: var(--text-main) !important;
+}
+
+/* Header & Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--text-main) !important;
+}
+
+.hero-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 30%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.25rem;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+}
+
+/* Glassmorphic KPI Metric Cards */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.kpi-card {
+  background: #151f32;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1.1rem 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  opacity: 0.8;
+}
+
+.kpi-card:hover {
+  transform: translateY(-3px);
+  border-color: #3b82f6;
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
+}
+
+.kpi-card.critical::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+.kpi-card.high::before { background: linear-gradient(90deg, #f97316, #fb923c); }
+.kpi-card.medium::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.kpi-card.low::before { background: linear-gradient(90deg, #10b981, #34d399); }
+.kpi-card.purple::before { background: linear-gradient(90deg, #8b5cf6, #c084fc); }
+
+.kpi-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.kpi-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.kpi-subtext {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+/* Feature & Action Cards */
+.feature-card {
+  background: #151f32;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.feature-card:hover {
+  border-color: #334155;
+  background: #18233a;
+}
+
+/* Priority Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge-critical {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.badge-high {
+  background: rgba(249, 115, 22, 0.15);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+.badge-medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.badge-low {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+/* Streamlit Button Styling */
+div.stButton > button:first-child {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: 1px solid #3b82f6 !important;
+  border-radius: 10px !important;
+  padding: 0.6rem 1.4rem !important;
+  font-size: 0.95rem !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+
+div.stButton > button:first-child:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Streamlit Inputs and Selectboxes */
+div[data-baseweb="select"] > div,
+div[data-baseweb="input"] > div,
+textarea {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-radius: 10px !important;
+}
+
+div[data-baseweb="select"] > div:hover,
+div[data-baseweb="input"] > div:hover,
+textarea:hover {
+  border-color: #3b82f6 !important;
+}
+
+/* Streamlit Dataframe custom wrapper */
+[data-testid="stDataFrame"] {
+  border: 1px solid #1e293b !important;
+  border-radius: 12px !important;
+  background-color: #151f32 !important;
+  overflow: hidden !important;
+}
+
+/* Streamlit Tabs */
+button[data-baseweb="tab"] {
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  color: var(--text-secondary) !important;
+  border-radius: 8px 8px 0 0 !important;
+  padding: 0.6rem 1.2rem !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+  color: #60a5fa !important;
+  border-bottom: 2px solid #3b82f6 !important;
+}
+
+/* Prediction Result Callout Card */
+.prediction-box {
+  background: linear-gradient(135deg, #151f32 0%, #1e293b 100%);
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-top: 1.25rem;
+}
+

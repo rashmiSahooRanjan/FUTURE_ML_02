@@ -1,0 +1,901 @@
+# MASTER PROMPT: BUILD A COMPLETE MACHINE LEARNING PROJECT
+
+## Project Name
+TicketIQ – AI-Powered Support Ticket Classification & Prioritization System
+
+## Project Type
+End-to-End Machine Learning + Natural Language Processing (NLP) + Interactive Web Application.
+
+## Project Objective
+
+Build a complete, professional, production-style Machine Learning application that automatically classifies customer support tickets into appropriate categories and predicts their priority levels.
+
+The application should help businesses, SaaS companies, IT support departments, and customer service teams reduce manual ticket sorting and identify urgent customer problems.
+
+The application must analyze customer ticket descriptions, understand the text using NLP techniques, predict the issue category, and assign a priority level.
+
+The project must be fully functional, not just a UI demonstration.
+
+IMPORTANT:
+- Do not create a fake ML application.
+- Train actual Machine Learning models using the provided dataset.
+- All predictions must come from trained models.
+- Do not use paid APIs.
+- Do not use OpenAI API, Gemini API, Claude API, or other external AI APIs.
+- Do not hardcode prediction results.
+- Do not generate fake evaluation metrics.
+- Every dashboard statistic must come from actual dataset or model results.
+
+---
+
+# 1. TECHNOLOGY STACK
+
+Use the following technologies:
+
+### Programming Language
+- Python 3.10
+
+### Frontend
+- Streamlit
+- HTML
+- CSS
+- Custom JavaScript only if necessary
+
+### Machine Learning
+- Scikit-learn
+- Logistic Regression
+- Multinomial Naive Bayes
+- Linear Support Vector Machine
+- Random Forest
+- Decision Tree
+
+### NLP
+- NLTK
+- TF-IDF Vectorizer
+- Bag of Words
+- Tokenization
+- Stopword Removal
+- Lemmatization
+
+### Data Processing
+- Pandas
+- NumPy
+
+### Visualization
+- Matplotlib
+- Seaborn
+- Plotly
+
+### Model Persistence
+- Joblib
+
+### Evaluation
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion Matrix
+- Classification Report
+
+Use Streamlit as the main application framework.
+
+---
+
+# 2. DATASET MANAGEMENT
+
+Use the following recommended dataset:
+
+Customer Support Ticket Dataset:
+https://www.kaggle.com/datasets/suraj520/customer-support-ticket-dataset
+
+Alternative dataset:
+https://www.kaggle.com/datasets/adisongoh/it-service-ticket-classification-dataset
+
+The application must support CSV dataset uploads.
+
+IMPORTANT DATASET REQUIREMENTS:
+
+1. Inspect the uploaded dataset before processing.
+2. Automatically identify relevant columns.
+3. Identify the ticket description column.
+4. Identify the ticket category column.
+5. Identify the priority column if available.
+6. Identify ticket ID, customer ID, date, and status columns if available.
+7. Handle different column names intelligently.
+8. Show an error if required columns cannot be identified.
+9. Allow users to manually map columns when automatic detection fails.
+
+Do not assume every dataset contains priority labels.
+
+If the dataset does not contain a priority column:
+
+- Implement a clearly documented rule-based priority-label generation process.
+- Use ticket urgency, keywords, impact indicators, and available structured fields.
+- Create High, Medium, and Low labels.
+- Keep the generated labels separate from original dataset labels.
+- Clearly explain that these are weak or rule-generated labels, not human-verified ground truth.
+- Evaluate priority prediction against the generated labels only with this limitation disclosed.
+- Never claim that generated labels represent actual customer urgency.
+
+If no suitable priority information is available, provide an option to upload a labeled priority dataset or configure the priority-labeling rules.
+
+---
+
+# 3. DATA PREPROCESSING MODULE
+
+Create a complete NLP text preprocessing pipeline.
+
+Implement:
+
+1. Remove missing ticket descriptions.
+2. Remove duplicate records.
+3. Convert text to lowercase.
+4. Remove unnecessary punctuation.
+5. Remove HTML tags.
+6. Remove URLs.
+7. Remove unnecessary special characters.
+8. Remove extra whitespace.
+9. Tokenization.
+10. Stopword removal.
+11. Lemmatization.
+12. Handle empty text.
+13. Handle class imbalance where appropriate.
+
+Create a reusable preprocessing function.
+
+Example:
+
+Input:
+"HELLO! I cannot access my account. Please help immediately."
+
+Processed Output:
+"hello cannot access account please help immediately"
+
+IMPORTANT:
+Preserve meaningful urgency words such as:
+- urgent
+- emergency
+- critical
+- immediately
+- failed
+- blocked
+- unable
+- outage
+
+Do not remove words that are useful for priority prediction.
+
+Avoid data leakage:
+- Fit TF-IDF only on training data.
+- Use sklearn Pipeline where possible.
+- Split data before fitting preprocessing/vectorization components.
+- Use stratified splitting when class distributions allow it.
+
+---
+
+# 4. EXPLORATORY DATA ANALYSIS (EDA)
+
+Create a comprehensive EDA module.
+
+Display:
+
+### Dataset Overview
+- Total number of tickets.
+- Total number of categories.
+- Number of priority levels.
+- Missing values.
+- Duplicate records.
+- Number of unique tickets.
+
+### Visualizations
+
+1. Ticket category distribution.
+2. Priority distribution.
+3. Most frequent words.
+4. Word cloud.
+5. Ticket length distribution.
+6. Category-wise ticket distribution.
+7. Priority-wise ticket distribution.
+8. Missing value analysis.
+9. Monthly ticket trends if date information exists.
+10. Category versus priority heatmap.
+
+Every chart must be generated from actual dataset values.
+
+Provide short explanations below every important chart.
+
+---
+
+# 5. FEATURE EXTRACTION
+
+Implement two feature extraction techniques:
+
+### A. Bag of Words
+Use CountVectorizer.
+
+### B. TF-IDF
+Use TfidfVectorizer.
+
+Configure:
+- Maximum features: 10,000.
+- N-gram range: (1, 2).
+- Minimum document frequency: 2.
+- Maximum document frequency: 0.95.
+
+Make the settings configurable.
+
+Compare both approaches using the same train/test split and suitable classification models.
+
+Use sparse matrices to avoid unnecessary memory consumption.
+
+---
+
+# 6. MACHINE LEARNING MODELS
+
+Build and compare multiple classification algorithms.
+
+### Models for Ticket Category Classification
+
+1. Multinomial Naive Bayes.
+2. Logistic Regression.
+3. Linear Support Vector Machine.
+4. Random Forest.
+5. Decision Tree.
+
+### Models for Ticket Priority Prediction
+
+1. Multinomial Naive Bayes.
+2. Logistic Regression.
+3. Linear Support Vector Machine.
+4. Random Forest.
+5. Decision Tree.
+
+Train separate models for:
+- Ticket category.
+- Ticket priority.
+
+Use the same appropriate text preprocessing and feature extraction pipeline.
+
+Do not train a priority model if valid priority labels are unavailable.
+
+### Model Comparison
+
+Create a comparison table containing:
+
+- Model name.
+- Accuracy.
+- Precision.
+- Recall.
+- F1-score.
+- Training time.
+- Prediction time.
+
+Use macro-F1 and weighted-F1 in addition to accuracy, especially for imbalanced classes.
+
+Select the best model based on a clearly defined metric.
+
+Do not select a model using test-set results and then report those same results as unbiased final performance.
+
+Use a validation set or cross-validation for model selection, followed by one final test evaluation.
+
+---
+
+# 7. MODEL EVALUATION
+
+Create a dedicated model evaluation page.
+
+Display:
+
+1. Accuracy score.
+2. Precision score.
+3. Recall score.
+4. F1-score.
+5. Confusion matrix.
+6. Classification report.
+7. Class-wise performance.
+8. Model comparison chart.
+9. Training time comparison.
+10. Prediction performance.
+
+Support both category and priority evaluation.
+
+For multi-class classification, use:
+- Macro averaging.
+- Weighted averaging.
+
+Show confusion matrices for the selected models.
+
+Explain the meaning of each evaluation metric in simple language.
+
+---
+
+# 8. MAIN APPLICATION DASHBOARD
+
+Create a modern, professional Streamlit dashboard.
+
+Application title:
+
+TicketIQ
+AI-Powered Support Ticket Intelligence Platform
+
+Design requirements:
+
+- Modern SaaS dashboard.
+- Professional business interface.
+- Clean typography.
+- Dark navy and blue accent colors.
+- Responsive layout.
+- Sidebar navigation.
+- Attractive KPI cards.
+- Interactive charts.
+- Consistent spacing.
+- Professional icons.
+- Minimal visual clutter.
+
+Create the following pages.
+
+## PAGE 1: Overview Dashboard
+
+Display KPI cards:
+
+- Total Support Tickets.
+- High Priority Tickets.
+- Medium Priority Tickets.
+- Low Priority Tickets.
+- Number of Ticket Categories.
+- Best Performing Category Model.
+- Best Performing Priority Model.
+
+Display:
+- Category distribution chart.
+- Priority distribution chart.
+- Recent ticket records.
+- Category versus priority heatmap.
+- Model performance overview.
+
+All statistics must be calculated from real data.
+
+## PAGE 2: Single Ticket Prediction
+
+Create an interactive form.
+
+Input fields:
+
+- Ticket Subject.
+- Ticket Description.
+- Optional Customer ID.
+- Optional Product/Service.
+- Optional Customer Impact.
+- Optional Number of Affected Users.
+
+Create a Predict Ticket button.
+
+When clicked:
+
+1. Validate the input.
+2. Clean the ticket text.
+3. Apply the trained category model.
+4. Apply the trained priority model.
+5. Display predicted category.
+6. Display predicted priority.
+7. Display model confidence if supported.
+8. Display a brief explanation of the prediction.
+
+Example:
+
+Ticket Subject:
+Unable to access my account.
+
+Ticket Description:
+I am unable to log in to my account. The password reset feature is also not working.
+
+Expected output format:
+
+Predicted Category: Account
+
+Predicted Priority: Medium
+
+Category Confidence: Actual model probability, if available.
+
+Priority Confidence: Actual model probability, if available.
+
+IMPORTANT:
+These are illustrative examples only. Actual predictions must come from trained models.
+
+For Linear SVM, do not invent probability scores. Either use calibrated probabilities or clearly display a decision score instead.
+
+## PAGE 3: Bulk Ticket Classification
+
+Allow the user to upload a CSV file containing multiple support tickets.
+
+Requirements:
+
+1. Upload CSV.
+2. Preview uploaded records.
+3. Identify the ticket description column.
+4. Allow manual column selection.
+5. Run category prediction.
+6. Run priority prediction.
+7. Display results in an interactive table.
+8. Add filters for category.
+9. Add filters for priority.
+10. Search tickets.
+11. Display ticket counts.
+12. Download classified results as CSV.
+
+Output CSV must contain:
+
+- Original ticket information.
+- Predicted category.
+- Predicted priority.
+- Category confidence where available.
+- Priority confidence where available.
+
+Do not modify the original uploaded file.
+
+## PAGE 4: Model Training
+
+Create a model training interface.
+
+Allow users to:
+
+- Upload a dataset.
+- Select the ticket description column.
+- Select the category column.
+- Select the priority column.
+- Select TF-IDF or Bag of Words.
+- Select the ML algorithms.
+- Configure test size.
+- Start model training.
+
+Display:
+- Training progress.
+- Training time.
+- Evaluation metrics.
+- Best-performing model.
+- Model comparison.
+
+Save trained models using Joblib.
+
+## PAGE 5: Data Analytics
+
+Create advanced analytics:
+
+- Ticket category analytics.
+- Priority analytics.
+- Word frequency analysis.
+- Most common ticket issues.
+- Ticket length analysis.
+- Monthly ticket trends if dates exist.
+- Category and priority relationship.
+- High-priority ticket analysis.
+
+Include meaningful business insights generated from the actual dataset.
+
+## PAGE 6: Model Performance
+
+Display:
+- Model comparison.
+- Accuracy comparison.
+- Precision comparison.
+- Recall comparison.
+- F1-score comparison.
+- Confusion matrices.
+- Classification reports.
+- Training duration.
+
+Include a downloadable evaluation report.
+
+## PAGE 7: About Project
+
+Display:
+
+Project Name: TicketIQ
+
+Project Description:
+An NLP-powered machine learning system that automatically classifies customer support tickets and predicts their priority to help businesses improve support operations.
+
+Project objectives:
+- Reduce manual ticket classification.
+- Identify urgent issues.
+- Improve ticket management.
+- Support faster issue resolution.
+- Provide actionable analytics.
+
+Display technology stack and project methodology.
+
+---
+
+# 9. PRIORITY CLASSIFICATION LOGIC
+
+Priority levels:
+
+### HIGH
+Examples:
+- Complete service outage.
+- Security breach.
+- Payment failure affecting multiple customers.
+- Critical system failure.
+- Account compromise.
+- Emergency service disruption.
+
+### MEDIUM
+Examples:
+- Login problems affecting one customer.
+- Repeated application errors.
+- Delayed transactions.
+- Partial feature failures.
+- Technical problems with workarounds.
+
+### LOW
+Examples:
+- General inquiries.
+- Feature requests.
+- Basic product questions.
+- Documentation requests.
+- Non-urgent suggestions.
+
+IMPORTANT:
+These are illustrative business rules.
+
+Use actual labeled priority data whenever available.
+
+If rules are used to generate training labels, explain their limitations and do not present them as ground truth.
+
+The final priority prediction must be generated by the trained priority classification model.
+
+Do not simply assign priority using keywords at prediction time while claiming that a trained ML model predicted it.
+
+---
+
+# 10. MODEL EXPLANATION
+
+Provide understandable prediction explanations.
+
+For example:
+
+Ticket:
+"I cannot access my account."
+
+Predicted Category:
+Account.
+
+Explanation:
+The trained model identified text patterns associated with account-related support tickets.
+
+Predicted Priority:
+Medium.
+
+Explanation:
+The model identified this as a moderate-severity issue based on patterns learned during training.
+
+Where possible, provide:
+- Important TF-IDF features.
+- Top influential words.
+- Class probabilities.
+- Prediction confidence.
+
+Clearly state that feature importance or influential words are explanations, not proof of causality.
+
+---
+
+# 11. PROJECT STRUCTURE
+
+Create the following professional folder structure:
+
+TicketIQ/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── sample/
+│
+├── models/
+│   ├── category_model.pkl
+│   ├── priority_model.pkl
+│   ├── category_vectorizer.pkl
+│   ├── priority_vectorizer.pkl
+│   └── model_metadata.json
+│
+├── notebooks/
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_data_preprocessing.ipynb
+│   ├── 03_feature_extraction.ipynb
+│   ├── 04_model_training.ipynb
+│   └── 05_model_evaluation.ipynb
+│
+├── src/
+│   ├── __init__.py
+│   ├── data_loader.py
+│   ├── preprocessing.py
+│   ├── feature_extraction.py
+│   ├── train_category.py
+│   ├── train_priority.py
+│   ├── evaluation.py
+│   ├── prediction.py
+│   ├── analytics.py
+│   └── utils.py
+│
+├── pages/
+│   ├── 1_Overview.py
+│   ├── 2_Ticket_Prediction.py
+│   ├── 3_Bulk_Classification.py
+│   ├── 4_Model_Training.py
+│   ├── 5_Data_Analytics.py
+│   ├── 6_Model_Performance.py
+│   └── 7_About.py
+│
+├── assets/
+│   ├── style.css
+│   └── logo.png
+│
+└── reports/
+    ├── model_comparison.csv
+    ├── classification_report.txt
+    └── evaluation_summary.json
+
+You can improve the folder structure if necessary, but maintain modular and clean code.
+
+IMPORTANT:
+- Avoid duplicating model artifacts unnecessarily.
+- Use one consistent preprocessing and vectorization pipeline for each trained model.
+- If models are saved as complete sklearn Pipelines, do not separately save redundant vectorizers.
+- Do not commit large datasets or generated model files unnecessarily.
+
+---
+
+# 12. REQUIREMENTS.TXT
+
+Create a compatible requirements.txt for Python 3.10.
+
+Include compatible versions of:
+
+- streamlit
+- pandas
+- numpy
+- scikit-learn
+- nltk
+- spacy
+- matplotlib
+- seaborn
+- plotly
+- wordcloud
+- joblib
+- scipy
+- openpyxl
+
+Avoid unnecessary dependencies.
+
+Verify package compatibility before finalizing the requirements file.
+
+---
+
+# 13. README.MD
+
+Create a detailed and professional GitHub README.
+
+Include:
+
+1. Project title.
+2. Project introduction.
+3. Problem statement.
+4. Project objectives.
+5. Key features.
+6. Technology stack.
+7. Dataset information.
+8. Dataset download instructions.
+9. Installation instructions.
+10. Project folder structure.
+11. Data preprocessing methodology.
+12. Feature extraction methodology.
+13. Machine Learning algorithms.
+14. Training methodology.
+15. Evaluation metrics.
+16. Application screenshots section.
+17. How to run the application.
+18. How to train models.
+19. How to make predictions.
+20. Limitations.
+21. Future improvements.
+22. Author section.
+
+Include these execution commands:
+
+Create environment:
+python -m venv venv
+
+Activate environment on Windows:
+venv\Scripts\activate
+
+Install dependencies:
+pip install -r requirements.txt
+
+Run the application:
+streamlit run app.py
+
+Make sure the README accurately reflects the implemented functionality.
+
+Do not fabricate screenshots, model accuracy, or dataset statistics.
+
+---
+
+# 14. GITHUB REQUIREMENTS
+
+Prepare the project for a public GitHub repository.
+
+Create a proper .gitignore.
+
+Exclude:
+- venv/
+- __pycache__/
+- .env
+- .ipynb_checkpoints/
+- unnecessary temporary files
+- large raw datasets
+- unnecessary generated files
+
+Include:
+- Source code.
+- README.
+- Requirements.
+- Small sample dataset if licensing permits.
+- Relevant notebooks.
+- Evaluation reports.
+
+Do not expose private information.
+
+---
+
+# 15. TESTING AND VALIDATION
+
+Before completing the project, verify:
+
+1. All Python files execute without syntax errors.
+2. All dependencies are compatible.
+3. Dataset loading works.
+4. Text preprocessing works.
+5. Missing values are handled.
+6. Category model trains successfully.
+7. Priority model trains successfully when labels exist.
+8. Predictions work correctly.
+9. Bulk CSV upload works.
+10. CSV download works.
+11. Dashboard charts display correctly.
+12. Model artifacts can be loaded after restarting the application.
+13. Empty ticket descriptions are handled.
+14. Unseen ticket text does not crash the model.
+15. The application works without paid APIs.
+
+Use error handling and meaningful error messages.
+
+Never hide errors by silently returning fake predictions.
+
+---
+
+# 16. FINAL DESIGN EXPECTATIONS
+
+The final application must look like a professional SaaS product.
+
+Design inspiration:
+- Modern customer support platforms.
+- Business intelligence dashboards.
+- Enterprise ticket management systems.
+
+Include:
+- Sidebar navigation.
+- KPI cards.
+- Interactive graphs.
+- Data tables.
+- Prediction forms.
+- CSV export.
+- Clear success and error messages.
+- Responsive layouts.
+
+Do not create a basic Streamlit demo with only one input box.
+
+Build a complete, multi-page application.
+
+---
+
+# 17. DEVELOPMENT INSTRUCTIONS FOR ANTIGRAVITY AI
+
+Follow these steps in order:
+
+STEP 1:
+Inspect the workspace and create the complete project structure.
+
+STEP 2:
+Inspect the available dataset and understand its columns.
+
+STEP 3:
+Implement data loading and validation.
+
+STEP 4:
+Implement NLP preprocessing.
+
+STEP 5:
+Perform exploratory data analysis.
+
+STEP 6:
+Implement TF-IDF and Bag of Words.
+
+STEP 7:
+Train and compare category classification models.
+
+STEP 8:
+Train and compare priority classification models.
+
+STEP 9:
+Evaluate both classification tasks.
+
+STEP 10:
+Save the trained model pipelines.
+
+STEP 11:
+Build the complete Streamlit dashboard.
+
+STEP 12:
+Implement single-ticket prediction.
+
+STEP 13:
+Implement bulk-ticket classification.
+
+STEP 14:
+Implement model training and analytics pages.
+
+STEP 15:
+Create README, requirements, and .gitignore.
+
+STEP 16:
+Run tests and fix all errors.
+
+STEP 17:
+Run the application using:
+
+streamlit run app.py
+
+STEP 18:
+Verify all pages and functionalities.
+
+Do not stop after generating the frontend.
+
+Do not stop after creating the folder structure.
+
+Do not leave TODO comments or incomplete placeholder functions.
+
+Complete the working project before reporting completion.
+
+If dataset access is unavailable, create the complete application with a clearly labeled sample dataset and provide instructions for uploading the actual dataset. Never pretend that the sample dataset is the actual Kaggle dataset.
+
+---
+
+# FINAL EXPECTED RESULT
+
+Deliver a fully functional end-to-end machine learning application:
+
+TicketIQ – AI-Powered Support Ticket Classification & Prioritization System.
+
+The application should be ready for:
+- Local execution.
+- GitHub publication.
+- Project demonstration.
+- Future Interns internship submission.
+- Technical interview demonstration.
+
+At the end, provide:
+
+1. Complete project folder structure.
+2. All source code files.
+3. Trained model files or reproducible training instructions.
+4. Evaluation results from the actual test dataset.
+5. README documentation.
+6. Requirements.txt.
+7. Instructions to run the application.
+8. Instructions to upload the project to GitHub.
+9. Known limitations and future improvements.
+
+Build everything carefully with clean, modular, readable, and well-documented Python code.

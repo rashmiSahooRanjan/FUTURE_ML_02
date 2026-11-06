@@ -1,0 +1,57 @@
+======================================================================
+TICKETIQ - MACHINE LEARNING MODEL EVALUATION REPORT
+======================================================================
+Generated on: 2026-11-06 16:39:45
+Dataset: Customer Support Ticket Dataset
+Total Samples: 8077
+
+----------------------------------------------------------------------
+1. BEST CATEGORY MODEL: Multinomial Naive Bayes
+----------------------------------------------------------------------
+Accuracy:           0.2135
+Weighted F1-Score:  0.2124
+Macro F1-Score:     0.2124
+Macro Precision:    0.2149
+Macro Recall:       0.2132
+Training Time:      1.05s
+Prediction Time:    0.20s
+
+Category Classification Report:
+                      precision    recall  f1-score   support
+
+     Billing inquiry       0.22      0.17      0.19       314
+Cancellation request       0.22      0.19      0.20       324
+     Product inquiry       0.23      0.23      0.23       316
+      Refund request       0.19      0.20      0.20       332
+     Technical issue       0.21      0.27      0.24       330
+
+            accuracy                           0.21      1616
+           macro avg       0.21      0.21      0.21      1616
+        weighted avg       0.21      0.21      0.21      1616
+
+
+----------------------------------------------------------------------
+2. BEST PRIORITY MODEL: Random Forest
+----------------------------------------------------------------------
+Accuracy:           0.2574
+Weighted F1-Score:  0.2466
+Macro F1-Score:     0.2453
+Macro Precision:    0.2508
+Macro Recall:       0.2549
+Training Time:      1.65s
+Prediction Time:    0.35s
+
+Priority Classification Report:
+              precision    recall  f1-score   support
+
+    Critical       0.24      0.24      0.24       406
+        High       0.23      0.18      0.20       401
+         Low       0.25      0.16      0.19       391
+      Medium       0.28      0.44      0.35       418
+
+    accuracy                           0.26      1616
+   macro avg       0.25      0.25      0.25      1616
+weighted avg       0.25      0.26      0.25      1616
+
+
+======================================================================
